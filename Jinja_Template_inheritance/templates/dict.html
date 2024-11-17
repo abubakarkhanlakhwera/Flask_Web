@@ -1,0 +1,23 @@
+{% extends 'base2.html' %}
+{% block title %}Employees{% endblock title %}
+{% block content %}
+<H1>List of Employees</H1>
+{% for emp_id,emp_data in employees.items()  %}
+<div>
+{% if emp_data.name == "ahmad" %}
+<h1>ID:{{emp_id}}</h1>
+<h1>Name:{{emp_data.name}}</h1>
+<h1>Age:{{emp_data.age}}</h1>
+<h1>He is your manager</h1>
+<br><br>
+{% else %}
+<h1>ID:{{emp_id}}</h1>
+<h1>Name:{{emp_data.name}}</h1>
+<h1>Age:{{emp_data.age}}</h1>
+<br><br>
+{% endif %}
+
+</div>
+
+{% endfor %}
+{% endblock content %}

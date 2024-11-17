@@ -1,0 +1,7 @@
+{% extends "base2.html" %}
+{% block title %}Num{% endblock title %}
+{% block content %}
+{% for x, y in combined %}
+    <h1>{{ x + y }}</h1>
+{% endfor %}
+{% endblock content %}

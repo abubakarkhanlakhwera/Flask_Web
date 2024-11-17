@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Your Age{% endblock %}
+{% block content %}
+    <div class="container">
+        <h1>Your Age</h1>
+        <p>You are {{ age }} years old.</p>
+        {% if age >= 40 %}
+        <p>You are old</p>
+        {% elif age <= 40 and age >= 1 %}
+        <p>You are young</p>
+        {% elif age == 0 %}
+        <p>You new to world</p>
+        {% else %}
+        <p>baba hosh kr</p>
+        {% endif %}
+        <a href="/">Calculate Again</a>
+    </div>
+{% endblock %}

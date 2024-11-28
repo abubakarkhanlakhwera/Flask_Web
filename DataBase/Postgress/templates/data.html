@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}data{% endblock title %}
+{% block content %}
+<div class="container my-4">
+    <!-- Employee List -->
+    <h2 class="mb-4 text-center">Employee Data</h2>
+    <div class="list-group">
+        {% for employee in employees %}
+        <div class="list-group-item">
+            <h5 class="mb-1">{{ employee.name }}</h5>
+            <p class="mb-1">
+                <strong>Scale:</strong> {{ employee.scale }} <br>
+                <strong>Designation:</strong> {{ employee.designation }} <br>
+                <strong>Salary:</strong> ${{ employee.salary }} <br>
+                <strong>Bonus:</strong> ${{ employee.bonus() }} <br>
+                <strong>Working Years:</strong> {{ employee.working_year_in_company }} years
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock content %}

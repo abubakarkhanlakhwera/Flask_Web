@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Employee Data{% endblock %}
+
+{% block content %}
+
+<div class="container my-4">
+    <!-- Employee List -->
+    <h2 class="mb-4 text-center">Employee Data</h2>
+    <div class="list-group">
+        {% for employee in employees %}
+        <div class="list-group-item">
+            <h5 class="mb-1">{{ employee.name }}</h5>
+            <p class="mb-1">
+                <strong>Scale:</strong> {{ employee.scale }} <br>
+                <strong>Designation:</strong> {{ employee.designation }} <br>
+                <strong>Salary:</strong> ${{ employee.salary }} <br>
+                <strong>Bonus:</strong> ${{ employee.bonus() }} <br>
+                <strong>Working Years:</strong> {{ employee.working_year_in_company }} years
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Horizontal Rule -->
+    <hr class="my-4">
+
+    <!-- Add New Employee Form -->
+    <h2 class="text-center">Add Your Record Here</h2>
+    <form action="{{ url_for('index') }}" method="POST" class="needs-validation mt-4" novalidate>
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+        </div>
+        <div class="mb-3">
+            <label for="scale" class="form-label">Scale</label>
+            <input type="number" class="form-control" id="scale" name="scale" placeholder="Add your scale" required>
+        </div>
+        <div class="mb-3">
+            <label for="designation" class="form-label">Designation</label>
+            <input type="text" class="form-control" id="designation" name="design" placeholder="Add your designation" required>
+        </div>
+        <div class="mb-3">
+            <label for="salary" class="form-label">Base Salary</label>
+            <input type="number" class="form-control" id="salary" name="salary" placeholder="Add your base salary" required>
+        </div>
+        <div class="mb-3">
+            <label for="working-years" class="form-label">Working Years</label>
+            <input type="number" class="form-control" id="working-years" name="wy" placeholder="Add your working years" required>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
